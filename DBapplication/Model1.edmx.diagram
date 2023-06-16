@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bab480181268442cabfc8fbe755270a5" Name="Diagram1">
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.Blood_Donation" Width="1.5" PointX="9.75" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.Blood_Stock" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.Book_Stock" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.Books_Donation" Width="1.5" PointX="12.75" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.Bus" Width="1.5" PointX="5.25" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.class" Width="1.5" PointX="0.75" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.Clothes_Donation" Width="1.5" PointX="9.75" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.Clothes_Stock" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.Department" Width="1.5" PointX="5.25" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.Drive" Width="1.5" PointX="7.5" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.Employee" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.Establishment" Width="1.5" PointX="7.5" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.Event" Width="1.5" PointX="5.25" PointY="30.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.Food_Donation" Width="1.5" PointX="9.75" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.Food_Stock" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.Money_Donations" Width="1.5" PointX="12.75" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.Non_Visit" Width="1.5" PointX="7.5" PointY="29.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.Participant" Width="1.5" PointX="7.5" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.Student" Width="1.5" PointX="3" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.U_Login" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalCharityTrackerModel.Visit" Width="1.5" PointX="10.5" PointY="31.625" IsExpanded="true" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK__Blood_Don__Desti__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK__Blood_Don__Handl__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK_Blood_Donation_Participant" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK__Books_Don__Donor__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK__Books_Don__Handl__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK__Drives__Bus_ID__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK__Student__Class_N__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK__Clothes_D__Handl__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK_Clothes_Donation_Participant" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK__Departmen__Super__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK__Drives__Driver_I__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK__Drives__Event_ID__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK__Event__Superviso__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK__Food_Dona__Handl__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK__Money_Don__Handl__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK__Money_Don__Desti__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK__Visit__Establish__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK__Non_Visit__Event__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK__Visit__Event_ID__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK_Food_Donation_Participant" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.FK__Money_Don__Donor__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.Teaches" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalCharityTrackerModel.Volunteers_In" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

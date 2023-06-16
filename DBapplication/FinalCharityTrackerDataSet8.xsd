@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FinalCharityTrackerDataSet8" targetNamespace="http://tempuri.org/FinalCharityTrackerDataSet8.xsd" xmlns:mstns="http://tempuri.org/FinalCharityTrackerDataSet8.xsd" xmlns="http://tempuri.org/FinalCharityTrackerDataSet8.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FinalCharityTrackerConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FinalCharityTrackerConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DBapplication.Properties.Settings.GlobalReference.Default.FinalCharityTrackerConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="StatisticsTableAdapter" GeneratorDataComponentClassName="StatisticsTableAdapter" Name="Statistics" UserDataComponentName="StatisticsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinalCharityTrackerConnectionString (Settings)" DbObjectName="FinalCharityTracker.dbo.[Statistics]" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT dep_name, average_salary FROM dbo.[Statistics]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="dep_name" DataSetColumn="dep_name" />
+              <Mapping SourceColumn="average_salary" DataSetColumn="average_salary" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FinalCharityTrackerDataSet8" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="FinalCharityTrackerDataSet8" msprop:Generator_DataSetName="FinalCharityTrackerDataSet8">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Statistics" msprop:Generator_RowEvHandlerName="StatisticsRowChangeEventHandler" msprop:Generator_RowDeletedName="StatisticsRowDeleted" msprop:Generator_RowDeletingName="StatisticsRowDeleting" msprop:Generator_RowEvArgName="StatisticsRowChangeEvent" msprop:Generator_TablePropName="Statistics" msprop:Generator_RowChangedName="StatisticsRowChanged" msprop:Generator_RowChangingName="StatisticsRowChanging" msprop:Generator_TableClassName="StatisticsDataTable" msprop:Generator_RowClassName="StatisticsRow" msprop:Generator_TableVarName="tableStatistics" msprop:Generator_UserTableName="Statistics">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="dep_name" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="dep_name" msprop:Generator_ColumnPropNameInTable="dep_nameColumn" msprop:Generator_ColumnVarNameInTable="columndep_name" msprop:Generator_UserColumnName="dep_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="average_salary" msprop:Generator_ColumnPropNameInRow="average_salary" msprop:Generator_ColumnPropNameInTable="average_salaryColumn" msprop:Generator_ColumnVarNameInTable="columnaverage_salary" msprop:Generator_UserColumnName="average_salary" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

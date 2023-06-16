@@ -1,0 +1,2076 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FinalCharityTrackerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Blood_Donation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Expiry_date" Type="date" />
+          <Property Name="Donation_date" Type="date" />
+          <Property Name="Type" Type="nvarchar" MaxLength="10" />
+          <Property Name="Destination" Type="nvarchar" MaxLength="50" />
+          <Property Name="Handler_ID" Type="int" Nullable="false" />
+          <Property Name="Donor_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Blood_Stock">
+          <Key>
+            <PropertyRef Name="Type" />
+          </Key>
+          <Property Name="Type" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="Book_Stock">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Educational_year" />
+            <PropertyRef Name="Subject" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Educational_year" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="Books_Donation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" />
+          <Property Name="At_Office" Type="int" />
+          <Property Name="Donation_date" Type="date" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Educational_year" Type="nvarchar" MaxLength="50" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="10" />
+          <Property Name="Handler_ID" Type="int" />
+          <Property Name="Donor_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Bus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Capacity" Type="int" />
+        </EntityType>
+        <EntityType Name="class">
+          <Key>
+            <PropertyRef Name="Number" />
+          </Key>
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="capacity" Type="int" />
+        </EntityType>
+        <EntityType Name="Clothes_Donation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Size" Type="nvarchar" MaxLength="5" />
+          <Property Name="Gender" Type="char" MaxLength="1" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Donation_date" Type="date" />
+          <Property Name="At_Office" Type="int" />
+          <Property Name="Type" Type="nvarchar" MaxLength="10" />
+          <Property Name="Handler_ID" Type="int" Nullable="false" />
+          <Property Name="Donor_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clothes_Stock">
+          <Key>
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Size" />
+            <PropertyRef Name="Gender" />
+          </Key>
+          <Property Name="Type" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Size" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Supervisor_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Drives">
+          <Key>
+            <PropertyRef Name="Bus_ID" />
+            <PropertyRef Name="Event_ID" />
+            <PropertyRef Name="Driver_ID" />
+          </Key>
+          <Property Name="Bus_ID" Type="int" Nullable="false" />
+          <Property Name="Event_ID" Type="int" Nullable="false" />
+          <Property Name="Driver_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="F_name" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="M_name" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="L_name" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Phone_No" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Salary" Type="bigint" />
+          <Property Name="Dep_ID" Type="int" />
+          <Property Name="E_Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Working_hrs" Type="int" />
+        </EntityType>
+        <EntityType Name="Establishment">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone_No" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="Bank_Account" Type="nvarchar" MaxLength="12" />
+          <Property Name="Email" Type="nvarchar" MaxLength="20" />
+          <Property Name="Total_Donations" Type="int" />
+          <Property Name="Total_Visits" Type="int" />
+          <Property Name="Location" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Is_visit" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" />
+          <Property Name="Cost" Type="float" />
+          <Property Name="Participants_No" Type="int" />
+          <Property Name="Supervisor_ID" Type="int" />
+          <Property Name="status" Type="nchar" MaxLength="15" />
+          <Property Name="date" Type="date" />
+          <Property Name="duration" Type="int" />
+        </EntityType>
+        <EntityType Name="Food_Donation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Donation_date" Type="date" />
+          <Property Name="Expiry_date" Type="date" />
+          <Property Name="Handler_ID" Type="int" Nullable="false" />
+          <Property Name="Donor_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Food_Stock">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="Money_Donations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Donation_date" Type="date" />
+          <Property Name="Amount" Type="bigint" />
+          <Property Name="Destination" Type="nvarchar" MaxLength="50" />
+          <Property Name="At_office" Type="int" />
+          <Property Name="Handler_ID" Type="int" />
+          <Property Name="Donor_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Non_Visit">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="int" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Participant">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="F_name" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="M_name" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="L_name" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Phone_No" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="F_name" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="M_name" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="L_name" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Phone_No" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Class_No" Type="int" />
+        </EntityType>
+        <EntityType Name="Teaches">
+          <Key>
+            <PropertyRef Name="Class_Number" />
+            <PropertyRef Name="Teacher_ID" />
+          </Key>
+          <Property Name="Class_Number" Type="int" Nullable="false" />
+          <Property Name="Teacher_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="U_Login">
+          <Key>
+            <PropertyRef Name="U_ID" />
+          </Key>
+          <Property Name="U_ID" Type="int" Nullable="false" />
+          <Property Name="Pass" Type="nvarchar" MaxLength="20" />
+          <Property Name="Dep_ID" Type="int" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Visit">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="int" Nullable="false" />
+          <Property Name="Establishment_Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Volunteers_In">
+          <Key>
+            <PropertyRef Name="Volunteer_ID" />
+            <PropertyRef Name="Event_ID" />
+          </Key>
+          <Property Name="Volunteer_ID" Type="int" Nullable="false" />
+          <Property Name="Event_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Blood_Don__Desti__37A5467C">
+          <End Role="Establishment" Type="Self.Establishment" Multiplicity="0..1" />
+          <End Role="Blood_Donation" Type="Self.Blood_Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Establishment">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="Blood_Donation">
+              <PropertyRef Name="Destination" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Blood_Don__Handl__36B12243">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Blood_Donation" Type="Self.Blood_Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Blood_Donation">
+              <PropertyRef Name="Handler_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Books_Don__Donor__59063A47">
+          <End Role="Participant" Type="Self.Participant" Multiplicity="0..1" />
+          <End Role="Books_Donation" Type="Self.Books_Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participant">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Books_Donation">
+              <PropertyRef Name="Donor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Books_Don__Handl__59FA5E80">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Books_Donation" Type="Self.Books_Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Books_Donation">
+              <PropertyRef Name="Handler_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clothes_D__Handl__2F10007B">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Clothes_Donation" Type="Self.Clothes_Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Clothes_Donation">
+              <PropertyRef Name="Handler_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Departmen__Super__276EDEB3">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Department" Type="Self.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="Supervisor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Drives__Bus_ID__5DCAEF64">
+          <End Role="Bus" Type="Self.Bus" Multiplicity="1" />
+          <End Role="Drives" Type="Self.Drives" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Drives">
+              <PropertyRef Name="Bus_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Drives__Driver_I__5EBF139D">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Drives" Type="Self.Drives" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Drives">
+              <PropertyRef Name="Driver_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Drives__Event_ID__5FB337D6">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="Drives" Type="Self.Drives" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Drives">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Event__Superviso__4316F928">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="Supervisor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Food_Dona__Handl__3E52440B">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Food_Donation" Type="Self.Food_Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Food_Donation">
+              <PropertyRef Name="Handler_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Money_Don__Desti__6383C8BA">
+          <End Role="Establishment" Type="Self.Establishment" Multiplicity="0..1" />
+          <End Role="Money_Donations" Type="Self.Money_Donations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Establishment">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="Money_Donations">
+              <PropertyRef Name="Destination" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Money_Don__Donor__6477ECF3">
+          <End Role="Participant" Type="Self.Participant" Multiplicity="0..1" />
+          <End Role="Money_Donations" Type="Self.Money_Donations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participant">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Money_Donations">
+              <PropertyRef Name="Donor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Money_Don__Handl__656C112C">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Money_Donations" Type="Self.Money_Donations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Money_Donations">
+              <PropertyRef Name="Handler_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Non_Visit__Event__47DBAE45">
+          <End Role="Event" Type="Self.Event" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Non_Visit" Type="Self.Non_Visit" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Non_Visit">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Student__Class_N__52593CB8">
+          <End Role="class" Type="Self.class" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="class">
+              <PropertyRef Name="Number" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="Class_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Teaches__Class_N__5535A963">
+          <End Role="class" Type="Self.class" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Teaches" Type="Self.Teaches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="class">
+              <PropertyRef Name="Number" />
+            </Principal>
+            <Dependent Role="Teaches">
+              <PropertyRef Name="Class_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Teaches__Teacher__5629CD9C">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Teaches" Type="Self.Teaches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Teaches">
+              <PropertyRef Name="Teacher_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Visit__Establish__4BAC3F29">
+          <End Role="Establishment" Type="Self.Establishment" Multiplicity="0..1" />
+          <End Role="Visit" Type="Self.Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Establishment">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="Visit">
+              <PropertyRef Name="Establishment_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Visit__Event_ID__4AB81AF0">
+          <End Role="Event" Type="Self.Event" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Visit" Type="Self.Visit" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Visit">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Volunteer__Event__6C190EBB">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="Volunteers_In" Type="Self.Volunteers_In" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Volunteers_In">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Volunteer__Volun__6D0D32F4">
+          <End Role="Participant" Type="Self.Participant" Multiplicity="1" />
+          <End Role="Volunteers_In" Type="Self.Volunteers_In" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participant">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Volunteers_In">
+              <PropertyRef Name="Volunteer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blood_Donation_Participant">
+          <End Role="Participant" Type="Self.Participant" Multiplicity="1" />
+          <End Role="Blood_Donation" Type="Self.Blood_Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participant">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Blood_Donation">
+              <PropertyRef Name="Donor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clothes_Donation_Participant">
+          <End Role="Participant" Type="Self.Participant" Multiplicity="1" />
+          <End Role="Clothes_Donation" Type="Self.Clothes_Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participant">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Clothes_Donation">
+              <PropertyRef Name="Donor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_Donation_Participant">
+          <End Role="Participant" Type="Self.Participant" Multiplicity="1" />
+          <End Role="Food_Donation" Type="Self.Food_Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participant">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Food_Donation">
+              <PropertyRef Name="Donor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="getAllBloodDonations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getAllBookDonations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getAllClothesDonations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getAllDeps" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getAllEmps" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getAllEstablishments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getAllEvents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getAllFoodDonations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getAllMoneyDonations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getAllUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="insertBlood" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+          <Parameter Name="Expiry_date" Type="date" Mode="In" />
+          <Parameter Name="Donation_date" Type="date" Mode="In" />
+          <Parameter Name="Type" Type="nvarchar" Mode="In" />
+          <Parameter Name="Destination" Type="nvarchar" Mode="In" />
+          <Parameter Name="Handler_ID" Type="int" Mode="In" />
+          <Parameter Name="Donor_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="insertBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="At_Office" Type="int" Mode="In" />
+          <Parameter Name="Donation_date" Type="date" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+          <Parameter Name="Educational_year" Type="nvarchar" Mode="In" />
+          <Parameter Name="Subject" Type="nvarchar" Mode="In" />
+          <Parameter Name="Handler_ID" Type="int" Mode="In" />
+          <Parameter Name="Donor_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="insertClothes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="Size" Type="nvarchar" Mode="In" />
+          <Parameter Name="Gender" Type="char" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+          <Parameter Name="Donation_date" Type="date" Mode="In" />
+          <Parameter Name="At_Office" Type="int" Mode="In" />
+          <Parameter Name="Type" Type="nvarchar" Mode="In" />
+          <Parameter Name="Handler_ID" Type="int" Mode="In" />
+          <Parameter Name="Donor_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="insertEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="F_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="M_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="L_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone_No" Type="nvarchar" Mode="In" />
+          <Parameter Name="Age" Type="int" Mode="In" />
+          <Parameter Name="Gender" Type="char" Mode="In" />
+          <Parameter Name="Salary" Type="bigint" Mode="In" />
+          <Parameter Name="Dep_ID" Type="int" Mode="In" />
+          <Parameter Name="E_Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="Working_Hrs" Type="int" Mode="In" />
+        </Function>
+        <Function Name="insertEstablishment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone_No" Type="nvarchar" Mode="In" />
+          <Parameter Name="Bank_Account" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="Total_Donations" Type="int" Mode="In" />
+          <Parameter Name="Total_Visits" Type="int" Mode="In" />
+          <Parameter Name="Location" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="insertEvent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="Is_Visit" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cost" Type="float" Mode="In" />
+          <Parameter Name="Participants_No" Type="int" Mode="In" />
+          <Parameter Name="Supervisor_ID" Type="int" Mode="In" />
+          <Parameter Name="status" Type="nchar" Mode="In" />
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="duration" Type="int" Mode="In" />
+        </Function>
+        <Function Name="insertFood" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+          <Parameter Name="Donation_date" Type="date" Mode="In" />
+          <Parameter Name="Expiry_date" Type="date" Mode="In" />
+          <Parameter Name="Handler_ID" Type="int" Mode="In" />
+          <Parameter Name="Donor_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="insertMoney" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="Donation_date" Type="date" Mode="In" />
+          <Parameter Name="Amount" Type="int" Mode="In" />
+          <Parameter Name="Destination" Type="nvarchar" Mode="In" />
+          <Parameter Name="At_office" Type="int" Mode="In" />
+          <Parameter Name="Handler_ID" Type="int" Mode="In" />
+          <Parameter Name="Donor_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="insertParticipant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="F_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="M_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="L_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone_No" Type="nvarchar" Mode="In" />
+          <Parameter Name="Age" Type="int" Mode="In" />
+          <Parameter Name="Gender" Type="char" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="insertVolunteer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Volunteer_ID" Type="int" Mode="In" />
+          <Parameter Name="Event_ID" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="FinalCharityTrackerModelStoreContainer">
+          <EntitySet Name="Blood_Donation" EntityType="Self.Blood_Donation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blood_Stock" EntityType="Self.Blood_Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Book_Stock" EntityType="Self.Book_Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Books_Donation" EntityType="Self.Books_Donation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bus" EntityType="Self.Bus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="class" EntityType="Self.class" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clothes_Donation" EntityType="Self.Clothes_Donation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clothes_Stock" EntityType="Self.Clothes_Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Drives" EntityType="Self.Drives" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Establishment" EntityType="Self.Establishment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Food_Donation" EntityType="Self.Food_Donation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Food_Stock" EntityType="Self.Food_Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Money_Donations" EntityType="Self.Money_Donations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Non_Visit" EntityType="Self.Non_Visit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Participant" EntityType="Self.Participant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teaches" EntityType="Self.Teaches" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="U_Login" EntityType="Self.U_Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Visit" EntityType="Self.Visit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Volunteers_In" EntityType="Self.Volunteers_In" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Blood_Don__Desti__37A5467C" Association="Self.FK__Blood_Don__Desti__37A5467C">
+            <End Role="Establishment" EntitySet="Establishment" />
+            <End Role="Blood_Donation" EntitySet="Blood_Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Blood_Don__Handl__36B12243" Association="Self.FK__Blood_Don__Handl__36B12243">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Blood_Donation" EntitySet="Blood_Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Books_Don__Donor__59063A47" Association="Self.FK__Books_Don__Donor__59063A47">
+            <End Role="Participant" EntitySet="Participant" />
+            <End Role="Books_Donation" EntitySet="Books_Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Books_Don__Handl__59FA5E80" Association="Self.FK__Books_Don__Handl__59FA5E80">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Books_Donation" EntitySet="Books_Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clothes_D__Handl__2F10007B" Association="Self.FK__Clothes_D__Handl__2F10007B">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Clothes_Donation" EntitySet="Clothes_Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Departmen__Super__276EDEB3" Association="Self.FK__Departmen__Super__276EDEB3">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Department" EntitySet="Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Drives__Bus_ID__5DCAEF64" Association="Self.FK__Drives__Bus_ID__5DCAEF64">
+            <End Role="Bus" EntitySet="Bus" />
+            <End Role="Drives" EntitySet="Drives" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Drives__Driver_I__5EBF139D" Association="Self.FK__Drives__Driver_I__5EBF139D">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Drives" EntitySet="Drives" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Drives__Event_ID__5FB337D6" Association="Self.FK__Drives__Event_ID__5FB337D6">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Drives" EntitySet="Drives" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Event__Superviso__4316F928" Association="Self.FK__Event__Superviso__4316F928">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Food_Dona__Handl__3E52440B" Association="Self.FK__Food_Dona__Handl__3E52440B">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Food_Donation" EntitySet="Food_Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Money_Don__Desti__6383C8BA" Association="Self.FK__Money_Don__Desti__6383C8BA">
+            <End Role="Establishment" EntitySet="Establishment" />
+            <End Role="Money_Donations" EntitySet="Money_Donations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Money_Don__Donor__6477ECF3" Association="Self.FK__Money_Don__Donor__6477ECF3">
+            <End Role="Participant" EntitySet="Participant" />
+            <End Role="Money_Donations" EntitySet="Money_Donations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Money_Don__Handl__656C112C" Association="Self.FK__Money_Don__Handl__656C112C">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Money_Donations" EntitySet="Money_Donations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Non_Visit__Event__47DBAE45" Association="Self.FK__Non_Visit__Event__47DBAE45">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Non_Visit" EntitySet="Non_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student__Class_N__52593CB8" Association="Self.FK__Student__Class_N__52593CB8">
+            <End Role="class" EntitySet="class" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Teaches__Class_N__5535A963" Association="Self.FK__Teaches__Class_N__5535A963">
+            <End Role="class" EntitySet="class" />
+            <End Role="Teaches" EntitySet="Teaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Teaches__Teacher__5629CD9C" Association="Self.FK__Teaches__Teacher__5629CD9C">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Teaches" EntitySet="Teaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Visit__Establish__4BAC3F29" Association="Self.FK__Visit__Establish__4BAC3F29">
+            <End Role="Establishment" EntitySet="Establishment" />
+            <End Role="Visit" EntitySet="Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Visit__Event_ID__4AB81AF0" Association="Self.FK__Visit__Event_ID__4AB81AF0">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Visit" EntitySet="Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Volunteer__Event__6C190EBB" Association="Self.FK__Volunteer__Event__6C190EBB">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Volunteers_In" EntitySet="Volunteers_In" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Volunteer__Volun__6D0D32F4" Association="Self.FK__Volunteer__Volun__6D0D32F4">
+            <End Role="Participant" EntitySet="Participant" />
+            <End Role="Volunteers_In" EntitySet="Volunteers_In" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blood_Donation_Participant" Association="Self.FK_Blood_Donation_Participant">
+            <End Role="Participant" EntitySet="Participant" />
+            <End Role="Blood_Donation" EntitySet="Blood_Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clothes_Donation_Participant" Association="Self.FK_Clothes_Donation_Participant">
+            <End Role="Participant" EntitySet="Participant" />
+            <End Role="Clothes_Donation" EntitySet="Clothes_Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_Donation_Participant" Association="Self.FK_Food_Donation_Participant">
+            <End Role="Participant" EntitySet="Participant" />
+            <End Role="Food_Donation" EntitySet="Food_Donation" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FinalCharityTrackerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Blood_Donation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Expiry_date" Type="DateTime" Precision="0" />
+          <Property Name="Donation_date" Type="DateTime" Precision="0" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Destination" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Handler_ID" Type="Int32" Nullable="false" />
+          <Property Name="Donor_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Establishment" Relationship="Self.FK__Blood_Don__Desti__37A5467C" FromRole="Blood_Donation" ToRole="Establishment" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Blood_Don__Handl__36B12243" FromRole="Blood_Donation" ToRole="Employee" />
+          <NavigationProperty Name="Participant" Relationship="Self.FK_Blood_Donation_Participant" FromRole="Blood_Donation" ToRole="Participant" />
+        </EntityType>
+        <EntityType Name="Blood_Stock">
+          <Key>
+            <PropertyRef Name="Type" />
+          </Key>
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Book_Stock">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Educational_year" />
+            <PropertyRef Name="Subject" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Educational_year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Subject" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Books_Donation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="At_Office" Type="Int32" />
+          <Property Name="Donation_date" Type="DateTime" Precision="0" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Educational_year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Handler_ID" Type="Int32" />
+          <Property Name="Donor_ID" Type="Int32" />
+          <NavigationProperty Name="Participant" Relationship="Self.FK__Books_Don__Donor__59063A47" FromRole="Books_Donation" ToRole="Participant" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Books_Don__Handl__59FA5E80" FromRole="Books_Donation" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Bus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Capacity" Type="Int32" />
+          <NavigationProperty Name="Drives" Relationship="Self.FK__Drives__Bus_ID__5DCAEF64" FromRole="Bus" ToRole="Drives" />
+        </EntityType>
+        <EntityType Name="class">
+          <Key>
+            <PropertyRef Name="Number" />
+          </Key>
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="capacity" Type="Int32" />
+          <NavigationProperty Name="Students" Relationship="Self.FK__Student__Class_N__52593CB8" FromRole="class" ToRole="Student" />
+          <NavigationProperty Name="Employees" Relationship="Self.Teaches" FromRole="class" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Clothes_Donation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Size" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Donation_date" Type="DateTime" Precision="0" />
+          <Property Name="At_Office" Type="Int32" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Handler_ID" Type="Int32" Nullable="false" />
+          <Property Name="Donor_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Clothes_D__Handl__2F10007B" FromRole="Clothes_Donation" ToRole="Employee" />
+          <NavigationProperty Name="Participant" Relationship="Self.FK_Clothes_Donation_Participant" FromRole="Clothes_Donation" ToRole="Participant" />
+        </EntityType>
+        <EntityType Name="Clothes_Stock">
+          <Key>
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Size" />
+            <PropertyRef Name="Gender" />
+          </Key>
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Size" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Supervisor_ID" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Departmen__Super__276EDEB3" FromRole="Department" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Drive">
+          <Key>
+            <PropertyRef Name="Bus_ID" />
+            <PropertyRef Name="Event_ID" />
+            <PropertyRef Name="Driver_ID" />
+          </Key>
+          <Property Name="Bus_ID" Type="Int32" Nullable="false" />
+          <Property Name="Event_ID" Type="Int32" Nullable="false" />
+          <Property Name="Driver_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bus" Relationship="Self.FK__Drives__Bus_ID__5DCAEF64" FromRole="Drives" ToRole="Bus" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Drives__Driver_I__5EBF139D" FromRole="Drives" ToRole="Employee" />
+          <NavigationProperty Name="Event" Relationship="Self.FK__Drives__Event_ID__5FB337D6" FromRole="Drives" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="F_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="M_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="L_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone_No" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Salary" Type="Int64" />
+          <Property Name="Dep_ID" Type="Int32" />
+          <Property Name="E_Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Working_hrs" Type="Int32" />
+          <NavigationProperty Name="Blood_Donation" Relationship="Self.FK__Blood_Don__Handl__36B12243" FromRole="Employee" ToRole="Blood_Donation" />
+          <NavigationProperty Name="Books_Donation" Relationship="Self.FK__Books_Don__Handl__59FA5E80" FromRole="Employee" ToRole="Books_Donation" />
+          <NavigationProperty Name="Clothes_Donation" Relationship="Self.FK__Clothes_D__Handl__2F10007B" FromRole="Employee" ToRole="Clothes_Donation" />
+          <NavigationProperty Name="Departments" Relationship="Self.FK__Departmen__Super__276EDEB3" FromRole="Employee" ToRole="Department" />
+          <NavigationProperty Name="Drives" Relationship="Self.FK__Drives__Driver_I__5EBF139D" FromRole="Employee" ToRole="Drives" />
+          <NavigationProperty Name="Events" Relationship="Self.FK__Event__Superviso__4316F928" FromRole="Employee" ToRole="Event" />
+          <NavigationProperty Name="Food_Donation" Relationship="Self.FK__Food_Dona__Handl__3E52440B" FromRole="Employee" ToRole="Food_Donation" />
+          <NavigationProperty Name="Money_Donations" Relationship="Self.FK__Money_Don__Handl__656C112C" FromRole="Employee" ToRole="Money_Donations" />
+          <NavigationProperty Name="classes" Relationship="Self.Teaches" FromRole="Employee" ToRole="class" />
+        </EntityType>
+        <EntityType Name="Establishment">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone_No" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Bank_Account" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Total_Donations" Type="Int32" />
+          <Property Name="Total_Visits" Type="Int32" />
+          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Blood_Donation" Relationship="Self.FK__Blood_Don__Desti__37A5467C" FromRole="Establishment" ToRole="Blood_Donation" />
+          <NavigationProperty Name="Money_Donations" Relationship="Self.FK__Money_Don__Desti__6383C8BA" FromRole="Establishment" ToRole="Money_Donations" />
+          <NavigationProperty Name="Visits" Relationship="Self.FK__Visit__Establish__4BAC3F29" FromRole="Establishment" ToRole="Visit" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Is_visit" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="Double" />
+          <Property Name="Participants_No" Type="Int32" />
+          <Property Name="Supervisor_ID" Type="Int32" />
+          <Property Name="status" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="duration" Type="Int32" />
+          <NavigationProperty Name="Drives" Relationship="Self.FK__Drives__Event_ID__5FB337D6" FromRole="Event" ToRole="Drives" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Event__Superviso__4316F928" FromRole="Event" ToRole="Employee" />
+          <NavigationProperty Name="Non_Visit" Relationship="Self.FK__Non_Visit__Event__47DBAE45" FromRole="Event" ToRole="Non_Visit" />
+          <NavigationProperty Name="Visit" Relationship="Self.FK__Visit__Event_ID__4AB81AF0" FromRole="Event" ToRole="Visit" />
+          <NavigationProperty Name="Participants" Relationship="Self.Volunteers_In" FromRole="Event" ToRole="Participant" />
+        </EntityType>
+        <EntityType Name="Food_Donation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Donation_date" Type="DateTime" Precision="0" />
+          <Property Name="Expiry_date" Type="DateTime" Precision="0" />
+          <Property Name="Handler_ID" Type="Int32" Nullable="false" />
+          <Property Name="Donor_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Food_Dona__Handl__3E52440B" FromRole="Food_Donation" ToRole="Employee" />
+          <NavigationProperty Name="Participant" Relationship="Self.FK_Food_Donation_Participant" FromRole="Food_Donation" ToRole="Participant" />
+        </EntityType>
+        <EntityType Name="Food_Stock">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Money_Donations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Donation_date" Type="DateTime" Precision="0" />
+          <Property Name="Amount" Type="Int64" />
+          <Property Name="Destination" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="At_office" Type="Int32" />
+          <Property Name="Handler_ID" Type="Int32" />
+          <Property Name="Donor_ID" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Money_Don__Handl__656C112C" FromRole="Money_Donations" ToRole="Employee" />
+          <NavigationProperty Name="Establishment" Relationship="Self.FK__Money_Don__Desti__6383C8BA" FromRole="Money_Donations" ToRole="Establishment" />
+          <NavigationProperty Name="Participant" Relationship="Self.FK__Money_Don__Donor__6477ECF3" FromRole="Money_Donations" ToRole="Participant" />
+        </EntityType>
+        <EntityType Name="Non_Visit">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="Int32" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Event" Relationship="Self.FK__Non_Visit__Event__47DBAE45" FromRole="Non_Visit" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="Participant">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="F_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="M_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="L_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone_No" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Blood_Donation" Relationship="Self.FK_Blood_Donation_Participant" FromRole="Participant" ToRole="Blood_Donation" />
+          <NavigationProperty Name="Books_Donation" Relationship="Self.FK__Books_Don__Donor__59063A47" FromRole="Participant" ToRole="Books_Donation" />
+          <NavigationProperty Name="Clothes_Donation" Relationship="Self.FK_Clothes_Donation_Participant" FromRole="Participant" ToRole="Clothes_Donation" />
+          <NavigationProperty Name="Food_Donation" Relationship="Self.FK_Food_Donation_Participant" FromRole="Participant" ToRole="Food_Donation" />
+          <NavigationProperty Name="Money_Donations" Relationship="Self.FK__Money_Don__Donor__6477ECF3" FromRole="Participant" ToRole="Money_Donations" />
+          <NavigationProperty Name="Events" Relationship="Self.Volunteers_In" FromRole="Participant" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="F_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="M_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="L_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone_No" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Class_No" Type="Int32" />
+          <NavigationProperty Name="class" Relationship="Self.FK__Student__Class_N__52593CB8" FromRole="Student" ToRole="class" />
+        </EntityType>
+        <EntityType Name="U_Login">
+          <Key>
+            <PropertyRef Name="U_ID" />
+          </Key>
+          <Property Name="U_ID" Type="Int32" Nullable="false" />
+          <Property Name="Pass" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Dep_ID" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Visit">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="Int32" Nullable="false" />
+          <Property Name="Establishment_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Establishment" Relationship="Self.FK__Visit__Establish__4BAC3F29" FromRole="Visit" ToRole="Establishment" />
+          <NavigationProperty Name="Event" Relationship="Self.FK__Visit__Event_ID__4AB81AF0" FromRole="Visit" ToRole="Event" />
+        </EntityType>
+        <Association Name="FK__Blood_Don__Desti__37A5467C">
+          <End Role="Establishment" Type="Self.Establishment" Multiplicity="0..1" />
+          <End Role="Blood_Donation" Type="Self.Blood_Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Establishment">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="Blood_Donation">
+              <PropertyRef Name="Destination" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Blood_Don__Handl__36B12243">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Blood_Donation" Type="Self.Blood_Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Blood_Donation">
+              <PropertyRef Name="Handler_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blood_Donation_Participant">
+          <End Role="Participant" Type="Self.Participant" Multiplicity="1" />
+          <End Role="Blood_Donation" Type="Self.Blood_Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participant">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Blood_Donation">
+              <PropertyRef Name="Donor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Books_Don__Donor__59063A47">
+          <End Role="Participant" Type="Self.Participant" Multiplicity="0..1" />
+          <End Role="Books_Donation" Type="Self.Books_Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participant">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Books_Donation">
+              <PropertyRef Name="Donor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Books_Don__Handl__59FA5E80">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Books_Donation" Type="Self.Books_Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Books_Donation">
+              <PropertyRef Name="Handler_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Drives__Bus_ID__5DCAEF64">
+          <End Role="Bus" Type="Self.Bus" Multiplicity="1" />
+          <End Role="Drives" Type="Self.Drive" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Drives">
+              <PropertyRef Name="Bus_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Student__Class_N__52593CB8">
+          <End Role="class" Type="Self.class" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="class">
+              <PropertyRef Name="Number" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="Class_No" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clothes_D__Handl__2F10007B">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Clothes_Donation" Type="Self.Clothes_Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Clothes_Donation">
+              <PropertyRef Name="Handler_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clothes_Donation_Participant">
+          <End Role="Participant" Type="Self.Participant" Multiplicity="1" />
+          <End Role="Clothes_Donation" Type="Self.Clothes_Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participant">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Clothes_Donation">
+              <PropertyRef Name="Donor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Departmen__Super__276EDEB3">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Department" Type="Self.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="Supervisor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Drives__Driver_I__5EBF139D">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Drives" Type="Self.Drive" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Drives">
+              <PropertyRef Name="Driver_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Drives__Event_ID__5FB337D6">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="Drives" Type="Self.Drive" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Drives">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Event__Superviso__4316F928">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="Supervisor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Food_Dona__Handl__3E52440B">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Food_Donation" Type="Self.Food_Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Food_Donation">
+              <PropertyRef Name="Handler_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Money_Don__Handl__656C112C">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Money_Donations" Type="Self.Money_Donations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Money_Donations">
+              <PropertyRef Name="Handler_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Money_Don__Desti__6383C8BA">
+          <End Role="Establishment" Type="Self.Establishment" Multiplicity="0..1" />
+          <End Role="Money_Donations" Type="Self.Money_Donations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Establishment">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="Money_Donations">
+              <PropertyRef Name="Destination" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Visit__Establish__4BAC3F29">
+          <End Role="Establishment" Type="Self.Establishment" Multiplicity="0..1" />
+          <End Role="Visit" Type="Self.Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Establishment">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="Visit">
+              <PropertyRef Name="Establishment_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Non_Visit__Event__47DBAE45">
+          <End Role="Event" Type="Self.Event" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Non_Visit" Type="Self.Non_Visit" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Non_Visit">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Visit__Event_ID__4AB81AF0">
+          <End Role="Event" Type="Self.Event" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Visit" Type="Self.Visit" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Visit">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_Donation_Participant">
+          <End Role="Participant" Type="Self.Participant" Multiplicity="1" />
+          <End Role="Food_Donation" Type="Self.Food_Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participant">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Food_Donation">
+              <PropertyRef Name="Donor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Money_Don__Donor__6477ECF3">
+          <End Role="Participant" Type="Self.Participant" Multiplicity="0..1" />
+          <End Role="Money_Donations" Type="Self.Money_Donations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participant">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Money_Donations">
+              <PropertyRef Name="Donor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Teaches">
+          <End Role="class" Type="Self.class" Multiplicity="*" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+        </Association>
+        <Association Name="Volunteers_In">
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <End Role="Participant" Type="Self.Participant" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="FinalCharityTrackerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Blood_Donation" EntityType="Self.Blood_Donation" />
+          <EntitySet Name="Blood_Stock" EntityType="Self.Blood_Stock" />
+          <EntitySet Name="Book_Stock" EntityType="Self.Book_Stock" />
+          <EntitySet Name="Books_Donation" EntityType="Self.Books_Donation" />
+          <EntitySet Name="Buses" EntityType="Self.Bus" />
+          <EntitySet Name="classes" EntityType="Self.class" />
+          <EntitySet Name="Clothes_Donation" EntityType="Self.Clothes_Donation" />
+          <EntitySet Name="Clothes_Stock" EntityType="Self.Clothes_Stock" />
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Drives" EntityType="Self.Drive" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Establishments" EntityType="Self.Establishment" />
+          <EntitySet Name="Events" EntityType="Self.Event" />
+          <EntitySet Name="Food_Donation" EntityType="Self.Food_Donation" />
+          <EntitySet Name="Food_Stock" EntityType="Self.Food_Stock" />
+          <EntitySet Name="Money_Donations" EntityType="Self.Money_Donations" />
+          <EntitySet Name="Non_Visit" EntityType="Self.Non_Visit" />
+          <EntitySet Name="Participants" EntityType="Self.Participant" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="U_Login" EntityType="Self.U_Login" />
+          <EntitySet Name="Visits" EntityType="Self.Visit" />
+          <AssociationSet Name="FK__Blood_Don__Desti__37A5467C" Association="Self.FK__Blood_Don__Desti__37A5467C">
+            <End Role="Establishment" EntitySet="Establishments" />
+            <End Role="Blood_Donation" EntitySet="Blood_Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Blood_Don__Handl__36B12243" Association="Self.FK__Blood_Don__Handl__36B12243">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Blood_Donation" EntitySet="Blood_Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blood_Donation_Participant" Association="Self.FK_Blood_Donation_Participant">
+            <End Role="Participant" EntitySet="Participants" />
+            <End Role="Blood_Donation" EntitySet="Blood_Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Books_Don__Donor__59063A47" Association="Self.FK__Books_Don__Donor__59063A47">
+            <End Role="Participant" EntitySet="Participants" />
+            <End Role="Books_Donation" EntitySet="Books_Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Books_Don__Handl__59FA5E80" Association="Self.FK__Books_Don__Handl__59FA5E80">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Books_Donation" EntitySet="Books_Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Drives__Bus_ID__5DCAEF64" Association="Self.FK__Drives__Bus_ID__5DCAEF64">
+            <End Role="Bus" EntitySet="Buses" />
+            <End Role="Drives" EntitySet="Drives" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student__Class_N__52593CB8" Association="Self.FK__Student__Class_N__52593CB8">
+            <End Role="class" EntitySet="classes" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clothes_D__Handl__2F10007B" Association="Self.FK__Clothes_D__Handl__2F10007B">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Clothes_Donation" EntitySet="Clothes_Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clothes_Donation_Participant" Association="Self.FK_Clothes_Donation_Participant">
+            <End Role="Participant" EntitySet="Participants" />
+            <End Role="Clothes_Donation" EntitySet="Clothes_Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Departmen__Super__276EDEB3" Association="Self.FK__Departmen__Super__276EDEB3">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Department" EntitySet="Departments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Drives__Driver_I__5EBF139D" Association="Self.FK__Drives__Driver_I__5EBF139D">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Drives" EntitySet="Drives" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Drives__Event_ID__5FB337D6" Association="Self.FK__Drives__Event_ID__5FB337D6">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Drives" EntitySet="Drives" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Event__Superviso__4316F928" Association="Self.FK__Event__Superviso__4316F928">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Food_Dona__Handl__3E52440B" Association="Self.FK__Food_Dona__Handl__3E52440B">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Food_Donation" EntitySet="Food_Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Money_Don__Handl__656C112C" Association="Self.FK__Money_Don__Handl__656C112C">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Money_Donations" EntitySet="Money_Donations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Money_Don__Desti__6383C8BA" Association="Self.FK__Money_Don__Desti__6383C8BA">
+            <End Role="Establishment" EntitySet="Establishments" />
+            <End Role="Money_Donations" EntitySet="Money_Donations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Visit__Establish__4BAC3F29" Association="Self.FK__Visit__Establish__4BAC3F29">
+            <End Role="Establishment" EntitySet="Establishments" />
+            <End Role="Visit" EntitySet="Visits" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Non_Visit__Event__47DBAE45" Association="Self.FK__Non_Visit__Event__47DBAE45">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Non_Visit" EntitySet="Non_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Visit__Event_ID__4AB81AF0" Association="Self.FK__Visit__Event_ID__4AB81AF0">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Visit" EntitySet="Visits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_Donation_Participant" Association="Self.FK_Food_Donation_Participant">
+            <End Role="Participant" EntitySet="Participants" />
+            <End Role="Food_Donation" EntitySet="Food_Donation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Money_Don__Donor__6477ECF3" Association="Self.FK__Money_Don__Donor__6477ECF3">
+            <End Role="Participant" EntitySet="Participants" />
+            <End Role="Money_Donations" EntitySet="Money_Donations" />
+          </AssociationSet>
+          <AssociationSet Name="Teaches" Association="Self.Teaches">
+            <End Role="class" EntitySet="classes" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="Volunteers_In" Association="Self.Volunteers_In">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Participant" EntitySet="Participants" />
+          </AssociationSet>
+          <FunctionImport Name="getAllBloodDonations" ReturnType="Collection(FinalCharityTrackerModel.getAllBloodDonations_Result)" />
+          <FunctionImport Name="getAllBookDonations" ReturnType="Collection(FinalCharityTrackerModel.getAllBookDonations_Result)" />
+          <FunctionImport Name="getAllClothesDonations" ReturnType="Collection(FinalCharityTrackerModel.getAllClothesDonations_Result)" />
+          <FunctionImport Name="getAllDeps" ReturnType="Collection(FinalCharityTrackerModel.getAllDeps_Result)" />
+          <FunctionImport Name="getAllEmps" ReturnType="Collection(FinalCharityTrackerModel.getAllEmps_Result)" />
+          <FunctionImport Name="getAllEstablishments" ReturnType="Collection(FinalCharityTrackerModel.getAllEstablishments_Result)" />
+          <FunctionImport Name="getAllEvents" ReturnType="Collection(FinalCharityTrackerModel.getAllEvents_Result)" />
+          <FunctionImport Name="getAllFoodDonations" ReturnType="Collection(FinalCharityTrackerModel.getAllFoodDonations_Result)" />
+          <FunctionImport Name="getAllMoneyDonations" ReturnType="Collection(FinalCharityTrackerModel.getAllMoneyDonations_Result)" />
+          <FunctionImport Name="getAllUsers" ReturnType="Collection(FinalCharityTrackerModel.getAllUsers_Result)" />
+          <FunctionImport Name="insertBlood">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+            <Parameter Name="Expiry_date" Mode="In" Type="DateTime" />
+            <Parameter Name="Donation_date" Mode="In" Type="DateTime" />
+            <Parameter Name="Type" Mode="In" Type="String" />
+            <Parameter Name="Destination" Mode="In" Type="String" />
+            <Parameter Name="Handler_ID" Mode="In" Type="Int32" />
+            <Parameter Name="Donor_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insertBook">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="At_Office" Mode="In" Type="Int32" />
+            <Parameter Name="Donation_date" Mode="In" Type="DateTime" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+            <Parameter Name="Educational_year" Mode="In" Type="String" />
+            <Parameter Name="Subject" Mode="In" Type="String" />
+            <Parameter Name="Handler_ID" Mode="In" Type="Int32" />
+            <Parameter Name="Donor_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insertClothes">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="Size" Mode="In" Type="String" />
+            <Parameter Name="Gender" Mode="In" Type="String" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+            <Parameter Name="Donation_date" Mode="In" Type="DateTime" />
+            <Parameter Name="At_Office" Mode="In" Type="Int32" />
+            <Parameter Name="Type" Mode="In" Type="String" />
+            <Parameter Name="Handler_ID" Mode="In" Type="Int32" />
+            <Parameter Name="Donor_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insertEmployee">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="F_name" Mode="In" Type="String" />
+            <Parameter Name="M_name" Mode="In" Type="String" />
+            <Parameter Name="L_name" Mode="In" Type="String" />
+            <Parameter Name="Phone_No" Mode="In" Type="String" />
+            <Parameter Name="Age" Mode="In" Type="Int32" />
+            <Parameter Name="Gender" Mode="In" Type="String" />
+            <Parameter Name="Salary" Mode="In" Type="Int64" />
+            <Parameter Name="Dep_ID" Mode="In" Type="Int32" />
+            <Parameter Name="E_Address" Mode="In" Type="String" />
+            <Parameter Name="Working_Hrs" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insertEstablishment">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Phone_No" Mode="In" Type="String" />
+            <Parameter Name="Bank_Account" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Total_Donations" Mode="In" Type="Int32" />
+            <Parameter Name="Total_Visits" Mode="In" Type="Int32" />
+            <Parameter Name="Location" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="insertEvent">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="Is_Visit" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Cost" Mode="In" Type="Double" />
+            <Parameter Name="Participants_No" Mode="In" Type="Int32" />
+            <Parameter Name="Supervisor_ID" Mode="In" Type="Int32" />
+            <Parameter Name="status" Mode="In" Type="String" />
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="duration" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insertFood">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+            <Parameter Name="Donation_date" Mode="In" Type="DateTime" />
+            <Parameter Name="Expiry_date" Mode="In" Type="DateTime" />
+            <Parameter Name="Handler_ID" Mode="In" Type="Int32" />
+            <Parameter Name="Donor_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insertMoney">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="Donation_date" Mode="In" Type="DateTime" />
+            <Parameter Name="Amount" Mode="In" Type="Int32" />
+            <Parameter Name="Destination" Mode="In" Type="String" />
+            <Parameter Name="At_office" Mode="In" Type="Int32" />
+            <Parameter Name="Handler_ID" Mode="In" Type="Int32" />
+            <Parameter Name="Donor_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insertParticipant">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="F_name" Mode="In" Type="String" />
+            <Parameter Name="M_name" Mode="In" Type="String" />
+            <Parameter Name="L_name" Mode="In" Type="String" />
+            <Parameter Name="Phone_No" Mode="In" Type="String" />
+            <Parameter Name="Age" Mode="In" Type="Int32" />
+            <Parameter Name="Gender" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="insertVolunteer">
+            <Parameter Name="Volunteer_ID" Mode="In" Type="Int32" />
+            <Parameter Name="Event_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="getAllBloodDonations_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="Quantity" Nullable="true" />
+          <Property Type="DateTime" Name="Expiry_date" Nullable="true" />
+          <Property Type="DateTime" Name="Donation_date" Nullable="true" />
+          <Property Type="String" Name="Type" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Destination" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Handler_ID" Nullable="false" />
+          <Property Type="Int32" Name="Donor_ID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="getAllBookDonations_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="At_Office" Nullable="true" />
+          <Property Type="DateTime" Name="Donation_date" Nullable="true" />
+          <Property Type="Int32" Name="Quantity" Nullable="true" />
+          <Property Type="String" Name="Educational_year" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Subject" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Handler_ID" Nullable="true" />
+          <Property Type="Int32" Name="Donor_ID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getAllClothesDonations_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Size" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="Gender" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="Quantity" Nullable="true" />
+          <Property Type="DateTime" Name="Donation_date" Nullable="true" />
+          <Property Type="Int32" Name="At_Office" Nullable="true" />
+          <Property Type="String" Name="Type" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Handler_ID" Nullable="false" />
+          <Property Type="Int32" Name="Donor_ID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="getAllDeps_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="Supervisor_ID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getAllEmps_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="F_name" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="M_name" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="L_name" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Phone_No" Nullable="false" MaxLength="11" />
+          <Property Type="Int32" Name="Age" Nullable="true" />
+          <Property Type="String" Name="Gender" Nullable="false" MaxLength="1" />
+          <Property Type="Int64" Name="Salary" Nullable="true" />
+          <Property Type="Int32" Name="Dep_ID" Nullable="true" />
+          <Property Type="String" Name="E_Address" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="Working_hrs" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getAllEstablishments_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Phone_No" Nullable="false" MaxLength="11" />
+          <Property Type="String" Name="Bank_Account" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="Total_Donations" Nullable="true" />
+          <Property Type="Int32" Name="Total_Visits" Nullable="true" />
+          <Property Type="String" Name="Location" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="getAllEvents_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="Is_visit" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="30" />
+          <Property Type="Double" Name="Cost" Nullable="true" />
+          <Property Type="Int32" Name="Participants_No" Nullable="true" />
+          <Property Type="Int32" Name="Supervisor_ID" Nullable="true" />
+          <Property Type="String" Name="status" Nullable="true" MaxLength="15" />
+          <Property Type="DateTime" Name="date" Nullable="true" />
+          <Property Type="Int32" Name="duration" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getAllFoodDonations_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="Quantity" Nullable="true" />
+          <Property Type="DateTime" Name="Donation_date" Nullable="true" />
+          <Property Type="DateTime" Name="Expiry_date" Nullable="true" />
+          <Property Type="Int32" Name="Handler_ID" Nullable="false" />
+          <Property Type="Int32" Name="Donor_ID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="getAllMoneyDonations_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="DateTime" Name="Donation_date" Nullable="true" />
+          <Property Type="Int64" Name="Amount" Nullable="true" />
+          <Property Type="String" Name="Destination" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="At_office" Nullable="true" />
+          <Property Type="Int32" Name="Handler_ID" Nullable="true" />
+          <Property Type="Int32" Name="Donor_ID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getAllUsers_Result">
+          <Property Type="Int32" Name="U_ID" Nullable="false" />
+          <Property Type="String" Name="Pass" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="Dep_ID" Nullable="true" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FinalCharityTrackerModelStoreContainer" CdmEntityContainer="FinalCharityTrackerEntities">
+          <EntitySetMapping Name="Blood_Donation">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.Blood_Donation">
+              <MappingFragment StoreEntitySet="Blood_Donation">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Expiry_date" ColumnName="Expiry_date" />
+                <ScalarProperty Name="Donation_date" ColumnName="Donation_date" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="Handler_ID" ColumnName="Handler_ID" />
+                <ScalarProperty Name="Donor_ID" ColumnName="Donor_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blood_Stock">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.Blood_Stock">
+              <MappingFragment StoreEntitySet="Blood_Stock">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Book_Stock">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.Book_Stock">
+              <MappingFragment StoreEntitySet="Book_Stock">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Educational_year" ColumnName="Educational_year" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Books_Donation">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.Books_Donation">
+              <MappingFragment StoreEntitySet="Books_Donation">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="At_Office" ColumnName="At_Office" />
+                <ScalarProperty Name="Donation_date" ColumnName="Donation_date" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Educational_year" ColumnName="Educational_year" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Handler_ID" ColumnName="Handler_ID" />
+                <ScalarProperty Name="Donor_ID" ColumnName="Donor_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buses">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.Bus">
+              <MappingFragment StoreEntitySet="Bus">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="classes">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.class">
+              <MappingFragment StoreEntitySet="class">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clothes_Donation">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.Clothes_Donation">
+              <MappingFragment StoreEntitySet="Clothes_Donation">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Donation_date" ColumnName="Donation_date" />
+                <ScalarProperty Name="At_Office" ColumnName="At_Office" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Handler_ID" ColumnName="Handler_ID" />
+                <ScalarProperty Name="Donor_ID" ColumnName="Donor_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clothes_Stock">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.Clothes_Stock">
+              <MappingFragment StoreEntitySet="Clothes_Stock">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Supervisor_ID" ColumnName="Supervisor_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drives">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.Drive">
+              <MappingFragment StoreEntitySet="Drives">
+                <ScalarProperty Name="Bus_ID" ColumnName="Bus_ID" />
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+                <ScalarProperty Name="Driver_ID" ColumnName="Driver_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="F_name" ColumnName="F_name" />
+                <ScalarProperty Name="M_name" ColumnName="M_name" />
+                <ScalarProperty Name="L_name" ColumnName="L_name" />
+                <ScalarProperty Name="Phone_No" ColumnName="Phone_No" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Dep_ID" ColumnName="Dep_ID" />
+                <ScalarProperty Name="E_Address" ColumnName="E_Address" />
+                <ScalarProperty Name="Working_hrs" ColumnName="Working_hrs" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Establishments">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.Establishment">
+              <MappingFragment StoreEntitySet="Establishment">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone_No" ColumnName="Phone_No" />
+                <ScalarProperty Name="Bank_Account" ColumnName="Bank_Account" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Total_Donations" ColumnName="Total_Donations" />
+                <ScalarProperty Name="Total_Visits" ColumnName="Total_Visits" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Is_visit" ColumnName="Is_visit" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Participants_No" ColumnName="Participants_No" />
+                <ScalarProperty Name="Supervisor_ID" ColumnName="Supervisor_ID" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Food_Donation">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.Food_Donation">
+              <MappingFragment StoreEntitySet="Food_Donation">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Donation_date" ColumnName="Donation_date" />
+                <ScalarProperty Name="Expiry_date" ColumnName="Expiry_date" />
+                <ScalarProperty Name="Handler_ID" ColumnName="Handler_ID" />
+                <ScalarProperty Name="Donor_ID" ColumnName="Donor_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Food_Stock">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.Food_Stock">
+              <MappingFragment StoreEntitySet="Food_Stock">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Money_Donations">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.Money_Donations">
+              <MappingFragment StoreEntitySet="Money_Donations">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Donation_date" ColumnName="Donation_date" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="At_office" ColumnName="At_office" />
+                <ScalarProperty Name="Handler_ID" ColumnName="Handler_ID" />
+                <ScalarProperty Name="Donor_ID" ColumnName="Donor_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Non_Visit">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.Non_Visit">
+              <MappingFragment StoreEntitySet="Non_Visit">
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Participants">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.Participant">
+              <MappingFragment StoreEntitySet="Participant">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="F_name" ColumnName="F_name" />
+                <ScalarProperty Name="M_name" ColumnName="M_name" />
+                <ScalarProperty Name="L_name" ColumnName="L_name" />
+                <ScalarProperty Name="Phone_No" ColumnName="Phone_No" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="F_name" ColumnName="F_name" />
+                <ScalarProperty Name="M_name" ColumnName="M_name" />
+                <ScalarProperty Name="L_name" ColumnName="L_name" />
+                <ScalarProperty Name="Phone_No" ColumnName="Phone_No" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Class_No" ColumnName="Class_No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="U_Login">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.U_Login">
+              <MappingFragment StoreEntitySet="U_Login">
+                <ScalarProperty Name="U_ID" ColumnName="U_ID" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="Dep_ID" ColumnName="Dep_ID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Visits">
+            <EntityTypeMapping TypeName="FinalCharityTrackerModel.Visit">
+              <MappingFragment StoreEntitySet="Visit">
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+                <ScalarProperty Name="Establishment_Name" ColumnName="Establishment_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Teaches" TypeName="FinalCharityTrackerModel.Teaches" StoreEntitySet="Teaches">
+            <EndProperty Name="class">
+              <ScalarProperty Name="Number" ColumnName="Class_Number" />
+            </EndProperty>
+            <EndProperty Name="Employee">
+              <ScalarProperty Name="ID" ColumnName="Teacher_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Volunteers_In" TypeName="FinalCharityTrackerModel.Volunteers_In" StoreEntitySet="Volunteers_In">
+            <EndProperty Name="Event">
+              <ScalarProperty Name="ID" ColumnName="Event_ID" />
+            </EndProperty>
+            <EndProperty Name="Participant">
+              <ScalarProperty Name="ID" ColumnName="Volunteer_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="getAllBloodDonations" FunctionName="FinalCharityTrackerModel.Store.getAllBloodDonations">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FinalCharityTrackerModel.getAllBloodDonations_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Expiry_date" ColumnName="Expiry_date" />
+                <ScalarProperty Name="Donation_date" ColumnName="Donation_date" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="Handler_ID" ColumnName="Handler_ID" />
+                <ScalarProperty Name="Donor_ID" ColumnName="Donor_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getAllBookDonations" FunctionName="FinalCharityTrackerModel.Store.getAllBookDonations">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FinalCharityTrackerModel.getAllBookDonations_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="At_Office" ColumnName="At_Office" />
+                <ScalarProperty Name="Donation_date" ColumnName="Donation_date" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Educational_year" ColumnName="Educational_year" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Handler_ID" ColumnName="Handler_ID" />
+                <ScalarProperty Name="Donor_ID" ColumnName="Donor_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getAllClothesDonations" FunctionName="FinalCharityTrackerModel.Store.getAllClothesDonations">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FinalCharityTrackerModel.getAllClothesDonations_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Donation_date" ColumnName="Donation_date" />
+                <ScalarProperty Name="At_Office" ColumnName="At_Office" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Handler_ID" ColumnName="Handler_ID" />
+                <ScalarProperty Name="Donor_ID" ColumnName="Donor_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getAllDeps" FunctionName="FinalCharityTrackerModel.Store.getAllDeps">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FinalCharityTrackerModel.getAllDeps_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Supervisor_ID" ColumnName="Supervisor_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getAllEmps" FunctionName="FinalCharityTrackerModel.Store.getAllEmps">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FinalCharityTrackerModel.getAllEmps_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="F_name" ColumnName="F_name" />
+                <ScalarProperty Name="M_name" ColumnName="M_name" />
+                <ScalarProperty Name="L_name" ColumnName="L_name" />
+                <ScalarProperty Name="Phone_No" ColumnName="Phone_No" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Dep_ID" ColumnName="Dep_ID" />
+                <ScalarProperty Name="E_Address" ColumnName="E_Address" />
+                <ScalarProperty Name="Working_hrs" ColumnName="Working_hrs" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getAllEstablishments" FunctionName="FinalCharityTrackerModel.Store.getAllEstablishments">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FinalCharityTrackerModel.getAllEstablishments_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone_No" ColumnName="Phone_No" />
+                <ScalarProperty Name="Bank_Account" ColumnName="Bank_Account" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Total_Donations" ColumnName="Total_Donations" />
+                <ScalarProperty Name="Total_Visits" ColumnName="Total_Visits" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getAllEvents" FunctionName="FinalCharityTrackerModel.Store.getAllEvents">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FinalCharityTrackerModel.getAllEvents_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Is_visit" ColumnName="Is_visit" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Participants_No" ColumnName="Participants_No" />
+                <ScalarProperty Name="Supervisor_ID" ColumnName="Supervisor_ID" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getAllFoodDonations" FunctionName="FinalCharityTrackerModel.Store.getAllFoodDonations">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FinalCharityTrackerModel.getAllFoodDonations_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Donation_date" ColumnName="Donation_date" />
+                <ScalarProperty Name="Expiry_date" ColumnName="Expiry_date" />
+                <ScalarProperty Name="Handler_ID" ColumnName="Handler_ID" />
+                <ScalarProperty Name="Donor_ID" ColumnName="Donor_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getAllMoneyDonations" FunctionName="FinalCharityTrackerModel.Store.getAllMoneyDonations">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FinalCharityTrackerModel.getAllMoneyDonations_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Donation_date" ColumnName="Donation_date" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="At_office" ColumnName="At_office" />
+                <ScalarProperty Name="Handler_ID" ColumnName="Handler_ID" />
+                <ScalarProperty Name="Donor_ID" ColumnName="Donor_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getAllUsers" FunctionName="FinalCharityTrackerModel.Store.getAllUsers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FinalCharityTrackerModel.getAllUsers_Result">
+                <ScalarProperty Name="U_ID" ColumnName="U_ID" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="Dep_ID" ColumnName="Dep_ID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="insertBlood" FunctionName="FinalCharityTrackerModel.Store.insertBlood" />
+          <FunctionImportMapping FunctionImportName="insertBook" FunctionName="FinalCharityTrackerModel.Store.insertBook" />
+          <FunctionImportMapping FunctionImportName="insertClothes" FunctionName="FinalCharityTrackerModel.Store.insertClothes" />
+          <FunctionImportMapping FunctionImportName="insertEmployee" FunctionName="FinalCharityTrackerModel.Store.insertEmployee" />
+          <FunctionImportMapping FunctionImportName="insertEstablishment" FunctionName="FinalCharityTrackerModel.Store.insertEstablishment" />
+          <FunctionImportMapping FunctionImportName="insertEvent" FunctionName="FinalCharityTrackerModel.Store.insertEvent" />
+          <FunctionImportMapping FunctionImportName="insertFood" FunctionName="FinalCharityTrackerModel.Store.insertFood" />
+          <FunctionImportMapping FunctionImportName="insertMoney" FunctionName="FinalCharityTrackerModel.Store.insertMoney" />
+          <FunctionImportMapping FunctionImportName="insertParticipant" FunctionName="FinalCharityTrackerModel.Store.insertParticipant" />
+          <FunctionImportMapping FunctionImportName="insertVolunteer" FunctionName="FinalCharityTrackerModel.Store.insertVolunteer" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
